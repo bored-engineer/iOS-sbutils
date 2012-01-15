@@ -30,13 +30,13 @@ int main(int argc, char **argv) {
 
 
     CFStringRef cs = CFStringCreateWithCString(NULL, bundle, kCFStringEncodingUTF8);
-    CFURLRef cu = url ? CFURLCreateWithBytes(NULL, url, strlen(url), kCFStringEncodingUTF8, NULL) : NULL;
+    CFURLRef cu = url ? CFURLCreateWithBytes(NULL, (UInt8*)url, strlen(url), kCFStringEncodingUTF8, NULL) : NULL;
     if(url && !cu) {
         fprintf(stderr, "invalid URL\n");
         return 1;
     }
     int err;
-    if(err = SBSLaunchApplicationForDebugging(cs, cu, arguments, NULL, NULL, NULL, flags)) {
+    if((err = SBSLaunchApplicationForDebugging(cs, cu, arguments, NULL, NULL, NULL, flags))) {
         fprintf(stderr, "SBSLaunchApplicationWithIdentifier failed: %d\n", err);
         return 1;
     }
