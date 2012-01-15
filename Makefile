@@ -2,14 +2,22 @@ export TARGET_CODESIGN_FLAGS="-Ssign.plist"
 
 include theos/makefiles/common.mk
 
-TOOL_NAME = sbalert sbecid sbdevice sblaunch sbbundleids sbopenurl sburlschemes
+TOOL_NAME = sbalert sbnetwork sbquit sblock sbecid sbdevice sblaunch sbbundleids sbopenurl sburlschemes
 
 sbalert_FILES = sbalert.mm
 sbalert_FRAMEWORKS = CoreFoundation
 
+sbnetwork_FILES = Reachability/Reachability.m sbnetwork.mm
+sbnetwork_FRAMEWORKS = Foundation SystemConfiguration
+
+sbquit_FILES = sbquit.mm
+sbquit_PRIVATE_FRAMEWORKS = GraphicsServices
+
+sblock_FILES = sblock.mm
+sblock_PRIVATE_FRAMEWORKS = GraphicsServices
+
 sbecid_FILES = sbecid.mm
 sbecid_FRAMEWORKS = IOKit Foundation UIKit
-sbecid_LDFLAGS = -llockdown
 
 sbdevice_FILES = sbdevice.mm
 sbdevice_FRAMEWORKS = UIKit
