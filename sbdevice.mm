@@ -8,7 +8,7 @@ void display_usage( char **argv ){
                     "  -m: localized model\n"
                     "  -u: udid\n"
                     "  -o: orientation\n"
-                    "  -s: battery level\n"
+                    "  -l: battery level\n"
                     "  -s: battery state\n"
                     "  -p: proximity sensor\n"
                     "  -e: multitasking support\n"
