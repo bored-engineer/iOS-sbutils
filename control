@@ -1,7 +1,7 @@
 Package: com.innoying.sbsutils
 Name: sbsutils
 Depends: 
-Version: 1.0.0
+Version: 1.0.1
 Architecture: iphoneos-arm
 Description: iOS utilities - replaces some broken Erica utilities and adds a bunch of new ones
 Maintainer: innoying
