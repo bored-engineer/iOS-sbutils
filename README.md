@@ -26,3 +26,5 @@ $ make install
 
 Utility Explanations (Developers)
 ------------
+
+The explanations can now be found [here](https://github.com/innoying/iOS-sbutils/wiki)
