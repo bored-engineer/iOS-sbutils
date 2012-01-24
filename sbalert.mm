@@ -44,7 +44,7 @@ int main(int argc, char **argv, char **envp) {
 	int ch;
 	
 	//While more options to parse
-	while ((ch = getopt(argc, argv, "ht:m:d:a:o:q:")) != -1){
+	while ((ch = getopt(argc, argv, "ht:m:d:a:o:pv:q:")) != -1){
 		//switch based on option
 		switch (ch){
         	case 't':
@@ -67,6 +67,13 @@ int main(int argc, char **argv, char **envp) {
         		//Other Button
 				CFDictionaryAddValue( dict, kCFUserNotificationOtherButtonTitleKey, CFStringCreateWithCString(NULL, optarg, kCFStringEncodingUTF8) );
         	break;
+        	case 'p':
+        		//Prompt
+        		CFDictionaryAddValue( dict, kCFUserNotificationTextFieldTitlesKey, @"title" );
+        	break;
+        	case 'v':
+				//Value
+	        	CFDictionaryAddValue( dict, kCFUserNotificationTextFieldValuesKey, CFStringCreateWithCString(NULL, optarg, kCFStringEncodingUTF8) );
         	case 'q':
         		//Timeout
 				timeout = atoi(optarg);
@@ -103,11 +110,26 @@ int main(int argc, char **argv, char **envp) {
 	
 	//Get result and save to options
 	CFUserNotificationReceiveResponse( notif, 0, &options );
-
-	//Display the result cast into an integer
-	printf( "%d\n", (int) options );
 	
-	//Return error result (0 if success)
-	return error;
+	CFDictionaryRef result = CFUserNotificationGetResponseDictionary(notif);
+	
+	//Setup autoreleasepool
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	
+	NSDictionary * powerDic = (NSDictionary *) result;
+	
+	NSString * aValue = [powerDic objectForKey:@"TextFieldValues"];
+	
+	if( aValue.length > 0 ){
+		printf( "%s\n", [aValue UTF8String] );
+	}
+	
+	[pool drain];
+	
+	if((int) error == 0){
+		exit((int) options);
+	}else{
+		exit(error);
+	}
 }
 
