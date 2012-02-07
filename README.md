@@ -16,11 +16,7 @@ $ git clone git://github.com/innoying/iOS-sbutils.git
 
 $ cd iOS-sbutils
 
-$ make
-
-$ make package
-
-$ make install
+$ make package install
 
 ```
 
