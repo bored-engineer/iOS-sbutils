@@ -2,7 +2,16 @@ export TARGET_CODESIGN_FLAGS="-Ssign.plist"
 
 include theos/makefiles/common.mk
 
-TOOL_NAME = sbalert sbnetwork sbquit sblock sbdevice sblaunch sbbundleids sbopenurl sburlschemes
+TWEAK_NAME = SBServer
+SBServer_FILES = SBServer.xm
+SBServer_FRAMEWORKS = CoreFoundation UIKit
+SBServer_PRIVATE_FRAMEWORKS = AppSupport
+
+TOOL_NAME = sbalert sbnetwork sbquit sblock sbdevice sblaunch sbbundleids sbopenurl sburlschemes sbmedia
+
+sbmedia_FILES = sbmedia.m
+sbmedia_FRAMEWORKS = UIKit
+sbmedia_PRIVATE_FRAMEWORKS = AppSupport
 
 sbalert_FILES = sbalert.mm
 sbalert_FRAMEWORKS = CoreFoundation
@@ -37,3 +46,4 @@ sburlschemes_PRIVATE_FRAMEWORKS = SpringBoardServices
 
 
 include $(THEOS_MAKE_PATH)/tool.mk
+include $(THEOS_MAKE_PATH)/tweak.mk
