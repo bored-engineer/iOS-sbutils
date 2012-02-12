@@ -1,4 +1,5 @@
 export TARGET_CODESIGN_FLAGS="-Ssign.plist"
+export THEOS_PACKAGE_DIR_NAME=debs
 
 include theos/makefiles/common.mk
 
