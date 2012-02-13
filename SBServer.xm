@@ -24,11 +24,11 @@
 		}else if([options isEqualToString:@"-n"] == YES){
 				[(SBMediaController *)[%c(SBMediaController) sharedInstance] changeTrack:1];
 		}else if([options isEqualToString:@"-t"] == YES){
-				return [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:1], @"status", [[(SBMediaController *)[%c(SBMediaController) sharedInstance] nowPlayingTitle], @"output"];
+				return [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:1], @"status", [[(SBMediaController *)[%c(SBMediaController) sharedInstance] nowPlayingTitle], @"output", nil];
 		}else if([options isEqualToString:@"-a"] == YES){
-				return [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:1], @"status", [[(SBMediaController *)[%c(SBMediaController) sharedInstance] nowPlayingArtist], @"output"];
+				return [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:1], @"status", [[(SBMediaController *)[%c(SBMediaController) sharedInstance] nowPlayingArtist], @"output", nil];
 		}else if([options isEqualToString:@"-l"] == YES){
-				return [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:1], @"status", [[(SBMediaController *)[%c(SBMediaController) sharedInstance] nowPlayingAlbum], @"output"];
+				return [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:1], @"status", [[(SBMediaController *)[%c(SBMediaController) sharedInstance] nowPlayingAlbum], @"output", nil];
 		}else if([options isEqualToString:@"-u"] == YES){
 				[(SBMediaController *)[%c(SBMediaController) sharedInstance] increaseVolume];
 		}else if([options isEqualToString:@"-d"] == YES){
