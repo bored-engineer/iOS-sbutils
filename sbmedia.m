@@ -9,27 +9,36 @@ int main(int argc, char **argv, char **envp) {
 	}
 
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    
-    	NSString *identifier = [[NSString alloc] initWithUTF8String:argv[1]];
+	
+		NSString *identifier = [[NSString alloc] initWithUTF8String:argv[1]];
 	NSDictionary *userInfo = [NSDictionary dictionaryWithObject:identifier forKey:@"options"];
 
 	CPDistributedMessagingCenter *messagingCenter = [CPDistributedMessagingCenter centerNamed:@"com.innoying.sbserver"];	
-    	NSDictionary *status = [messagingCenter sendMessageAndReceiveReplyName:@"sbmedia" userInfo:userInfo];
+		NSDictionary *status = [messagingCenter sendMessageAndReceiveReplyName:@"sbmedia" userInfo:userInfo];
 
-    	int returnValue = [[status objectForKey:@"status"] intValue];
-    
-    	[pool release];
+		int returnValue = [[status objectForKey:@"status"] intValue];
+
+		if([status objectForKey:@"output"]) NSString *data = [status objectForKey:@"output"];
+	
+		[pool release];
 
 	if(returnValue == -1){
 		goto usage;
+	}else if(data){
+		printf("%s\n", [data UTF8String]);
 	}
-    	return returnValue;
+		return returnValue;
 
 	usage:
-		fprintf(stderr, "Usage: sbmedia [-t] [-n] [-p]\n"
-                    	"  -t: toggle music (play/pause)\n"
-                    	"  -n: go to next song\n"
-                    	"  -p: go to previous song\n"
-                    	);
+		fprintf(stderr, "Usage: sbmedia [-t|-n|-p|-n|-a|-l|-u|-d]\n"
+						"  -t: toggle music (play/pause)\n"
+						"  -n: go to next song\n"
+						"  -p: go to previous song\n"
+						"  -n: print track name\n"
+						"  -a: print track artist\n"
+						"  -l: print track album\n"
+						"  -u: increase volume\n"
+						"  -d: decrease volume\n"
+						);
 		return 1;
 }
