@@ -9,7 +9,6 @@ SBServer_FRAMEWORKS = CoreFoundation UIKit
 SBServer_PRIVATE_FRAMEWORKS = AppSupport
 
 TOOL_NAME = sbalert sbnetwork sbquit sblock sbdevice sblaunch sbbundleids sbopenurl sburlschemes sbmedia sbtoggle
-
 sbmedia_FILES = sbmedia.m
 sbmedia_FRAMEWORKS = UIKit
 sbmedia_PRIVATE_FRAMEWORKS = AppSupport
