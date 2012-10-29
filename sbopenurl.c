@@ -9,6 +9,7 @@ bool SBSOpenSensitiveURLAndUnlock(CFURLRef url, char flags);
 int main(int argc, char **argv) {
     if(argc != 2) {
         fprintf(stderr, "Usage: sbopenurl url\n");
+        return 1;
     }
     CFURLRef cu = CFURLCreateWithBytes(NULL, (UInt8*)argv[1], strlen(argv[1]), kCFStringEncodingUTF8, NULL);
     if(!cu) {
