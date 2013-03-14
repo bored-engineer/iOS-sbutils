@@ -8,11 +8,14 @@ SBServer_FILES = SBServer.xm
 SBServer_FRAMEWORKS = CoreFoundation UIKit
 SBServer_PRIVATE_FRAMEWORKS = AppSupport
 
-TOOL_NAME = sbalert sbnetwork sbquit sblock sbdevice sblaunch sbbundleids sbopenurl sburlschemes sbmedia
-
+TOOL_NAME = sbalert sbnetwork sbquit sblock sbdevice sblaunch sbbundleids sbopenurl sburlschemes sbmedia sbtoggle
 sbmedia_FILES = sbmedia.m
 sbmedia_FRAMEWORKS = UIKit
 sbmedia_PRIVATE_FRAMEWORKS = AppSupport
+
+sbtoggle_FILES = sbtoggle.mm
+sbtoggle_FRAMEWORKS = UIKit
+sbtoggle_PRIVATE_FRAMEWORKS = AppSupport
 
 sbalert_FILES = sbalert.mm
 sbalert_FRAMEWORKS = CoreFoundation
