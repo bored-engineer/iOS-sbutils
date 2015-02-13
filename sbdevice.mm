@@ -61,7 +61,7 @@ int main(int argc, char **argv, char **envp) {
 			break;
 			case 'u':
 				//UUID
-				printf("%s\n", (char*)[[aDevice uniqueIdentifier] UTF8String]);
+				printf("%s\n", (char*)[aDevice.identifierForVendor.UUIDString UTF8String]);
 			break;
 			case 'o':
 				//Orientation
