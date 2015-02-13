@@ -8,7 +8,10 @@ SBServer_FILES = SBServer.xm
 SBServer_FRAMEWORKS = CoreFoundation UIKit
 SBServer_PRIVATE_FRAMEWORKS = AppSupport
 
-TOOL_NAME = sbalert sbnetwork sbquit sblock sbdevice sblaunch sbbundleids sbopenurl sburlschemes sbmedia sbtoggle
+TOOL_NAME = sbalert sbnetwork sbquit sblock sbdevice sblaunch sbbundleids sbopenurl sbmedia sbtoggle sbpidof
+
+# sburlschemes
+
 sbmedia_FILES = sbmedia.m
 sbmedia_FRAMEWORKS = UIKit
 sbmedia_PRIVATE_FRAMEWORKS = AppSupport
@@ -48,6 +51,9 @@ sburlschemes_FILES = sburlschemes.c
 sburlschemes_FRAMEWORKS = CoreFoundation 
 sburlschemes_PRIVATE_FRAMEWORKS = SpringBoardServices 
 
+sbpidof_FILES = sbpidof.m
+sbpidof_FRAMEWORKS = CoreFoundation 
+sbpidof_CFLAGS = -fmodules
 
 include $(THEOS_MAKE_PATH)/tool.mk
 include $(THEOS_MAKE_PATH)/tweak.mk
